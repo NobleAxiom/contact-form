@@ -1,10 +1,12 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400, 700;
+  font-style: normal;
   line-height: 1.5;
-  font-weight: 400;
 
   color-scheme: light dark;
-  color: black;
+  color: hsl(187, 24%, 22%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

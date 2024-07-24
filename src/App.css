@@ -6,14 +6,17 @@
   text-align: center;
 }
 body {
-  font-family: "Young Serif", serif;
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400, 700;
+  font-style: normal;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #d5e8d4; /*body background */
+  background-color: hsl(148, 38%, 91%); /*body background */
 }
 
 /*sm screen size*/
@@ -23,7 +26,7 @@ body {
   padding-right: 3.5rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: white; /*card background */
+  background-color: hsl(0, 0%, 100%); /*card background */
 }
 .card h1 {
   font-size: 1.5em;
@@ -34,7 +37,7 @@ body {
   margin-bottom: 10px;
 }
 .astrix {
-  color: green; /*astrix color */
+  color: hsl(169, 82%, 27%); /*astrix color */
 }
 
 .input-group {
@@ -42,6 +45,7 @@ body {
   margin-bottom: 10px;
   width: 100%;
   text-align: left;
+  border-color: hsl(186, 15%, 59%);
 }
 #name-group {
   display: block;
@@ -69,35 +73,35 @@ body {
 .input-group input:hover,
 .input-group textarea:hover {
   cursor: pointer;
-  border-color: green;
+  border-color: #45a049;
 }
 
 .input-group input,
 .input-group label,
 .input-group textarea {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid hsl(186, 15%, 59%);
   border-radius: 4px;
   font-size: 16px;
   color-scheme: light;
-  accent-color: green; /*radio input selected color */
+  accent-color: hsl(169, 82%, 27%); /*radio input selected color */
   width: 100%;
 }
 
 .input-group.error input,
 .input-field.error input,
 .input-group.error textarea {
-  border-color: red;
+  border-color: hsl(0, 66%, 54%);
 }
 
 form .error-message {
-  color: red;
+  color: hsl(0, 66%, 54%);
   font-size: 12px;
   margin-top: 5px;
 }
 
 .consent-group.error .error-message {
-  color: red;
+  color: hsl(0, 66%, 54%);
   font-size: 12px;
   margin-top: 5px;
 }
@@ -106,12 +110,13 @@ form .error-message {
   display: inline-block;
   align-items: center;
   margin-bottom: 10px;
+  border-color: hsl(186, 15%, 59%);
 }
 
 .consent-group input {
   margin-right: 10px;
   color-scheme: light;
-  accent-color: green; /*checkbox color */
+  accent-color: hsl(169, 82%, 27%); /*checkbox color */
 }
 
 .submit-btn {
@@ -123,8 +128,8 @@ form .error-message {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-  background-color: #4caf50; /*button color */
-  color: white;
+  background-color: hsl(169, 82%, 27%); /*button color */
+  color: hsl(0, 0%, 100%);
   border: none;
   text-align: center;
   text-decoration: none;
@@ -147,13 +152,17 @@ button:focus-visible {
   display: flex;
   text-align: center;
   flex-direction: column;
-  border: green solid;
+  border: hsl(169, 82%, 27%) solid;
   width: 100%;
 }
 
+.radio-group:active {
+  accent-color: hsl(169, 82%, 27%); /*radio input selected color */
+}
+
 .radio-queryType:hover {
-  background: greenyellow;
-  border-color: green;
+  background: hsl(148, 38%, 91%);
+  border-color: #45a049;
   cursor: pointer;
 }
 
@@ -164,7 +173,7 @@ button:focus-visible {
     padding: 2rem;
   }
   body {
-    background-color: lightblue;
+    background-color: hsl(148, 38%, 91%);
   }
   .card {
     padding-right: 2rem;
@@ -186,6 +195,6 @@ button:focus-visible {
 
 @media screen and (min-width: 800px) {
   body {
-    background-color: hsl(30, 54%, 90%);
+    background-color: hsl(148, 38%, 91%);
   }
 }
