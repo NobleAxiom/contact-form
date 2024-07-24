@@ -19,29 +19,16 @@ function App() {
       ...formData,
       [name]: type === "checkbox" ? checked : value,
     });
-    clearError(name);
-  };
-
-  const clearError = (name) => {
-    setErrors((prevErrors) => {
-      const newErrors = { ...prevErrors };
-      delete newErrors[name];
-      return newErrors;
-    });
   };
 
   const validate = () => {
     let formErrors = {};
-    if (!formData.firstName) formErrors.firstName = "This field is required";
-    if (!formData.lastName) formErrors.lastName = "This field is required";
-    if (!formData.email)
-      formErrors.email = "Please enter a valid email address";
-    if (!formData.queryType)
-      formErrors.queryType = "Please select a quarry type";
-    if (!formData.message) formErrors.message = "This field is required";
-    if (!formData.consent)
-      formErrors.consent =
-        "To submit this form, please consent to being contacted";
+    if (!formData.firstName) formErrors.firstName = "This field is required *";
+    if (!formData.lastName) formErrors.lastName = "This field is required *";
+    if (!formData.email) formErrors.email = "This field is required *";
+    if (!formData.queryType) formErrors.queryType = "This field is required *";
+    if (!formData.message) formErrors.message = "This field is required *";
+    if (!formData.consent) formErrors.consent = "This field is required *";
     return formErrors;
   };
 
@@ -67,12 +54,12 @@ function App() {
       <div className="card">
         <h1>Contact Us</h1>
         <form onSubmit={handleSubmit}>
-          <div className="input-group" id="name-group">
+          <div className="input-group name-group">
             <div className={`input-field ${errors.firstName ? "error" : ""}`}>
-              <span>First Name </span> <span className="astrix">*</span>
               <input
                 type="text"
                 name="firstName"
+                placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleChange}
               />
@@ -81,10 +68,10 @@ function App() {
               )}
             </div>
             <div className={`input-field ${errors.lastName ? "error" : ""}`}>
-              <span>Last Name </span> <span className="astrix">*</span>
               <input
                 type="text"
                 name="lastName"
+                placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
               />
@@ -93,60 +80,52 @@ function App() {
               )}
             </div>
           </div>
-          <span>Email Address </span> <span className="astrix">*</span>
           <div className={`input-group ${errors.email ? "error" : ""}`}>
             <input
               type="email"
               name="email"
+              placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
             />
+            {errors.email && <p className="error-message">{errors.email}</p>}
           </div>
-          {errors.email && <p className="error-message">{errors.email}</p>}
-          <span>Query Type </span> <span className="astrix">*</span>
-          <div
-            className={`input-group ${errors.queryType ? "error" : ""}`}
-            id="radio-group"
-          >
-            <label className="radio-queryType">
-              <span id="value-1">
-                {" "}
-                <input
-                  type="radio"
-                  name="queryType"
-                  value="general"
-                  checked={formData.queryType === "general"}
-                  onChange={handleChange}
-                />
-              </span>
-              <span> General Enquiry</span>
+          <div className={`input-group ${errors.queryType ? "error" : ""}`}>
+            <label>
+              <input
+                type="radio"
+                name="queryType"
+                value="general"
+                checked={formData.queryType === "general"}
+                onChange={handleChange}
+              />
+              General
             </label>
-            <label className="radio-queryType">
-              <span id="value-2">
-                {" "}
-                <input
-                  type="radio"
-                  name="queryType"
-                  value="support"
-                  checked={formData.queryType === "support"}
-                  onChange={handleChange}
-                />
-              </span>
-              <span> Support Request</span>
+            <label>
+              <input
+                type="radio"
+                name="queryType"
+                value="support"
+                checked={formData.queryType === "support"}
+                onChange={handleChange}
+              />
+              Support
             </label>
+            {errors.queryType && (
+              <p className="error-message">{errors.queryType}</p>
+            )}
           </div>
-          {errors.queryType && (
-            <p className="error-message">{errors.queryType}</p>
-          )}{" "}
-          <span>Message </span> <span className="astrix">*</span>
           <div className={`input-group ${errors.message ? "error" : ""}`}>
             <textarea
               name="message"
+              placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
             />
+            {errors.message && (
+              <p className="error-message">{errors.message}</p>
+            )}
           </div>
-          {errors.message && <p className="error-message">{errors.message}</p>}
           <div className={`consent-group ${errors.consent ? "error" : ""}`}>
             <input
               type="checkbox"
